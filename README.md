@@ -90,6 +90,8 @@ Use the "Standard" install option
 
 C) Or you can use **Drush** (which is pre-installed inside this project). For example:
 
+**NOTE**: I received an error when using this option. So, use it at your own risk!
+
 ```
 ./vendor/bin/drush site-install --db-url=mysql://root@localhost/d8_nashville
 ```
