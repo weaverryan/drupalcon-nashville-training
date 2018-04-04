@@ -1,0 +1,10 @@
+diff --git a/modules/custom/country_music/country_music.routing.yml b/modules/custom/country_music/country_music.routing.yml
+new file mode 100644
+index 0000000..a46efb4
+--- /dev/null
++++ b/modules/custom/country_music/country_music.routing.yml
+@@ -0,0 +1,4 @@
++country_music.song.list:
++  path: /music/country/generate
++  requirements:
++    _permission: 'access content'

@@ -1,0 +1,132 @@
+diff --git a/modules/custom/country_music/composer.json b/modules/custom/country_music/composer.json
+new file mode 100644
+index 0000000..739c6f0
+--- /dev/null
++++ b/modules/custom/country_music/composer.json
+@@ -0,0 +1,14 @@
++{
++  "name": "drupal/country_music",
++  "type": "drupal-module",
++  "description": "Living the Nashville Dream!",
++  "keywords": ["Drupal"],
++  "license": "GPL-2.0+",
++  "homepage": "https://www.drupal.org/project/country_music",
++  "minimum-stability": "dev",
++  "support": {
++    "issues": "https://www.drupal.org/project/issues/country_music",
++    "source": "http://cgit.drupalcode.org/country_music"
++  },
++  "require": { }
++}
+diff --git a/modules/custom/country_music/country_music.info.yml b/modules/custom/country_music/country_music.info.yml
+new file mode 100644
+index 0000000..087f4d7
+--- /dev/null
++++ b/modules/custom/country_music/country_music.info.yml
+@@ -0,0 +1,5 @@
++name: 'Country Music'
++type: module
++description: 'Living the Nashville Dream!'
++core: 8.x
++package: 'Custom'
+diff --git a/modules/custom/country_music/country_music.module b/modules/custom/country_music/country_music.module
+new file mode 100644
+index 0000000..8c7f132
+--- /dev/null
++++ b/modules/custom/country_music/country_music.module
+@@ -0,0 +1,35 @@
++<?php
++
++/**
++ * @file
++ * Contains country_music.module.
++ */
++
++use Drupal\Core\Routing\RouteMatchInterface;
++
++/**
++ * Implements hook_help().
++ */
++function country_music_help($route_name, RouteMatchInterface $route_match) {
++  switch ($route_name) {
++    // Main module help for the country_music module.
++    case 'help.page.country_music':
++      $output = '';
++      $output .= '<h3>' . t('About') . '</h3>';
++      $output .= '<p>' . t('Living the Nashville Dream!') . '</p>';
++      return $output;
++
++    default:
++  }
++}
++
++/**
++ * Implements hook_theme().
++ */
++function country_music_theme() {
++  return [
++    'country_music' => [
++      'render element' => 'children',
++    ],
++  ];
++}
+diff --git a/modules/custom/country_music/templates/country-music.html.twig b/modules/custom/country_music/templates/country-music.html.twig
+new file mode 100644
+index 0000000..91e43c8
+--- /dev/null
++++ b/modules/custom/country_music/templates/country-music.html.twig
+@@ -0,0 +1 @@
++<!-- Add you custom twig html here -->
+\ No newline at end of file
+diff --git a/modules/custom/country_music/tests/src/Functional/LoadTest.php b/modules/custom/country_music/tests/src/Functional/LoadTest.php
+new file mode 100644
+index 0000000..58398d8
+--- /dev/null
++++ b/modules/custom/country_music/tests/src/Functional/LoadTest.php
+@@ -0,0 +1,46 @@
++<?php
++
++namespace Drupal\Tests\country_music\Functional;
++
++use Drupal\Core\Url;
++use Drupal\Tests\BrowserTestBase;
++
++/**
++ * Simple test to ensure that main page loads with module enabled.
++ *
++ * @group country_music
++ */
++class LoadTest extends BrowserTestBase {
++
++  /**
++   * Modules to enable.
++   *
++   * @var array
++   */
++  public static $modules = ['country_music'];
++
++  /**
++   * A user with permission to administer site configuration.
++   *
++   * @var \Drupal\user\UserInterface
++   */
++  protected $user;
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function setUp() {
++    parent::setUp();
++    $this->user = $this->drupalCreateUser(['administer site configuration']);
++    $this->drupalLogin($this->user);
++  }
++
++  /**
++   * Tests that the home page loads with a 200 response.
++   */
++  public function testLoad() {
++    $this->drupalGet(Url::fromRoute('<front>'));
++    $this->assertSession()->statusCodeEquals(200);
++  }
++
++}

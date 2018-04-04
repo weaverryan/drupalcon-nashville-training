@@ -1,0 +1,45 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "module-generate-it",
+            "name": "Module: Generate it",
+            "description": null
+        },
+        {
+            "id": "routes-add-route-only",
+            "name": "Routes: Add route only",
+            "description": null
+        },
+        {
+            "id": "routing-add-controller-controller",
+            "name": "Routing: Add controller + _controller",
+            "description": null
+        },
+        {
+            "id": "routing-add-wildcard",
+            "name": "Routing: Add Wildcard",
+            "description": null
+        },
+        {
+            "id": "routing-give-wildcard-default",
+            "name": "Routing: Give wildcard default",
+            "description": null
+        },
+        {
+            "id": "routing-return-render-array",
+            "name": "Routing: Return render array",
+            "description": null
+        },
+        {
+            "id": "service-generate-config-form",
+            "name": "Service: Generate config form",
+            "description": null
+        }
+    ],
+    "sha": "54f9d14ce30160fddf0e16579bc6214924cbd35b"
+}

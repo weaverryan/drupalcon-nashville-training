@@ -1,0 +1,25 @@
+diff --git a/modules/custom/country_music/country_music.routing.yml b/modules/custom/country_music/country_music.routing.yml
+index e881a16..879e44f 100644
+--- a/modules/custom/country_music/country_music.routing.yml
++++ b/modules/custom/country_music/country_music.routing.yml
+@@ -1,5 +1,5 @@
+ country_music.song.list:
+-  path: /music/country/generate
++  path: /music/country/generate/{noun}
+   defaults:
+     _controller: 'Drupal\country_music\Controller\SongController::writeSong'
+   requirements:
+diff --git a/modules/custom/country_music/src/Controller/SongController.php b/modules/custom/country_music/src/Controller/SongController.php
+index 70dd94b..df31bf1 100644
+--- a/modules/custom/country_music/src/Controller/SongController.php
++++ b/modules/custom/country_music/src/Controller/SongController.php
+@@ -5,7 +5,7 @@
+ use Symfony\Component\HttpFoundation\Response;
+ 
+ class SongController {
+-  public function writeSong() {
+-    return new Response('I rode my truck, through some mud.');
++  public function writeSong($noun) {
++    return new Response(sprintf('I rode my %s, through some mud.', $noun));
+   }
+ }

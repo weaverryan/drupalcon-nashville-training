@@ -1,0 +1,28 @@
+diff --git a/modules/custom/country_music/country_music.routing.yml b/modules/custom/country_music/country_music.routing.yml
+index a46efb4..e881a16 100644
+--- a/modules/custom/country_music/country_music.routing.yml
++++ b/modules/custom/country_music/country_music.routing.yml
+@@ -1,4 +1,6 @@
+ country_music.song.list:
+   path: /music/country/generate
++  defaults:
++    _controller: 'Drupal\country_music\Controller\SongController::writeSong'
+   requirements:
+     _permission: 'access content'
+diff --git a/modules/custom/country_music/src/Controller/SongController.php b/modules/custom/country_music/src/Controller/SongController.php
+new file mode 100644
+index 0000000..70dd94b
+--- /dev/null
++++ b/modules/custom/country_music/src/Controller/SongController.php
+@@ -0,0 +1,11 @@
++<?php
++
++namespace Drupal\country_music\Controller;
++
++use Symfony\Component\HttpFoundation\Response;
++
++class SongController {
++  public function writeSong() {
++    return new Response('I rode my truck, through some mud.');
++  }
++}
