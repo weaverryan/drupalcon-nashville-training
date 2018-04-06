@@ -1,0 +1,19 @@
+diff --git a/modules/custom/country_music/src/Service/SongGenerator.php b/modules/custom/country_music/src/Service/SongGenerator.php
+index 6ed7e43..e114e41 100644
+--- a/modules/custom/country_music/src/Service/SongGenerator.php
++++ b/modules/custom/country_music/src/Service/SongGenerator.php
+@@ -2,11 +2,13 @@
+ 
+ namespace Drupal\country_music\Service;
+ 
++use Drupal\Core\Config\ConfigFactoryInterface;
++
+ class SongGenerator {
+ 
+   private $configFactory;
+ 
+-  public function __construct($configFactory)
++  public function __construct(ConfigFactoryInterface $configFactory)
+   {
+     $this->configFactory = $configFactory;
+   }

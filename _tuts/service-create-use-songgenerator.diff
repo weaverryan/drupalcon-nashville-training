@@ -1,0 +1,54 @@
+diff --git a/modules/custom/country_music/src/Controller/SongController.php b/modules/custom/country_music/src/Controller/SongController.php
+index 6298bc6..9113de9 100644
+--- a/modules/custom/country_music/src/Controller/SongController.php
++++ b/modules/custom/country_music/src/Controller/SongController.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\country_music\Controller;
+ 
+ use Drupal\Core\Controller\ControllerBase;
++use Drupal\country_music\Service\SongGenerator;
+ 
+ class SongController extends ControllerBase {
+   public function writeSong($noun) {
+@@ -11,7 +12,8 @@ public function writeSong($noun) {
+         ->get('noun');
+     }
+ 
+-    $title = sprintf('I rode my %s, through some mud.', $noun);
++    $songGenerator = new SongGenerator();
++    $title = $songGenerator->generateSong($noun);
+ 
+     return [
+       '#type' => 'markup',
+diff --git a/modules/custom/country_music/src/Service/SongGenerator.php b/modules/custom/country_music/src/Service/SongGenerator.php
+new file mode 100644
+index 0000000..45c393d
+--- /dev/null
++++ b/modules/custom/country_music/src/Service/SongGenerator.php
+@@ -0,0 +1,25 @@
++<?php
++
++namespace Drupal\country_music\Service;
++
++class SongGenerator {
++  public function generateSong($noun)
++  {
++    $verbs = ['drive', 'drink', 'dance'];
++    $adjectives = ['Honky Tonk', 'country', 'back road', 'boot scootin'];
++    $templates = [
++      'I %noun% my %adjective% %noun%',
++      '%adjective% %noun%, let\'s %verb%!',
++      '%verb%ing my %adjective% %noun%'
++    ];
++
++    $title = strtr($templates[array_rand($templates)], [
++      '%noun%' => $noun,
++      '%adjective%' => $adjectives[array_rand($adjectives)],
++      '%verb%' => $verbs[array_rand($verbs)]
++    ]);
++    $title = ucwords($title);
++
++    return $title;
++  }
++}
+\ No newline at end of file

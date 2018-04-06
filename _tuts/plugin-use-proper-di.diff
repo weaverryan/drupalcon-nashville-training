@@ -1,0 +1,43 @@
+diff --git a/modules/custom/country_music/src/Plugin/Block/SongBlock.php b/modules/custom/country_music/src/Plugin/Block/SongBlock.php
+index 509843a..ed047a5 100644
+--- a/modules/custom/country_music/src/Plugin/Block/SongBlock.php
++++ b/modules/custom/country_music/src/Plugin/Block/SongBlock.php
+@@ -4,6 +4,7 @@
+ 
+ use Drupal\Core\Block\BlockBase;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
++use Drupal\country_music\Service\SongGenerator;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+ 
+ /**
+@@ -15,21 +16,25 @@
+  * )
+  */
+ class SongBlock extends BlockBase implements ContainerFactoryPluginInterface {
++  private $songGenerator;
++
++  public function __construct(SongGenerator $songGenerator, array $configuration, $plugin_id, $plugin_definition) {
++    $this->songGenerator = $songGenerator;
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++  }
++
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function build() {
+-    $songGenerator = \Drupal::getContainer()
+-      ->get('country_music.song_generator');
+-
+     $build = [];
+-    $build['song_block']['#markup'] = $songGenerator->generateSong('dog');
++    $build['song_block']['#markup'] = $this->songGenerator->generateSong('dog');
+ 
+     return $build;
+   }
+ 
+   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+-    return new self($configuration, $plugin_id, $plugin_definition);
++    return new self($container->get('country_music.song_generator'), $configuration, $plugin_id, $plugin_definition);
+   }
+ }

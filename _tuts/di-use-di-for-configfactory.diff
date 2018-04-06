@@ -1,0 +1,24 @@
+diff --git a/modules/custom/country_music/src/Service/SongGenerator.php b/modules/custom/country_music/src/Service/SongGenerator.php
+index e884bbc..6ed7e43 100644
+--- a/modules/custom/country_music/src/Service/SongGenerator.php
++++ b/modules/custom/country_music/src/Service/SongGenerator.php
+@@ -3,10 +3,18 @@
+ namespace Drupal\country_music\Service;
+ 
+ class SongGenerator {
++
++  private $configFactory;
++
++  public function __construct($configFactory)
++  {
++    $this->configFactory = $configFactory;
++  }
++
+   public function generateSong($noun)
+   {
+     if ($noun === null) {
+-      $noun = $this->config('country_music.default')
++      $noun = $this->configFactory->get('country_music.default')
+         ->get('noun');
+     }
+ 

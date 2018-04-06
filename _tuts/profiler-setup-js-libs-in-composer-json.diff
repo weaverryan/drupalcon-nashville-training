@@ -1,0 +1,45 @@
+diff --git a/composer.json b/composer.json
+index bccd5cc..e2302d1 100644
+--- a/composer.json
++++ b/composer.json
+@@ -45,7 +45,8 @@
+             "themes/contrib/{$name}": ["type:drupal-theme"],
+             "drush/contrib/{$name}": ["type:drupal-drush"],
+             "modules/custom/{$name}": ["type:drupal-custom-module"],
+-            "themes/custom/{$name}": ["type:drupal-custom-theme"]
++            "themes/custom/{$name}": ["type:drupal-custom-theme"],
++            "libraries/{$name}": ["type:drupal-library"]
+         }
+     },
+     "autoload": {
+@@ -67,6 +68,30 @@
+         {
+             "type": "composer",
+             "url": "https://packages.drupal.org/8"
++        },
++        "d3": {
++            "type": "package",
++            "package": {
++                "name": "d3/d3",
++                "version": "v3.5.17",
++                "type": "drupal-library",
++                "dist": {
++                    "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
++                    "type": "zip"
++                }
++            }
++        },
++        "highlightjs": {
++            "type": "package",
++            "package": {
++                "name": "components/highlightjs",
++                "version": "9.7.0",
++                "type": "drupal-library",
++                "dist": {
++                    "url": "https://github.com/components/highlightjs/archive/9.7.0.zip",
++                    "type": "zip"
++                }
++            }
+         }
+     ]
+ }

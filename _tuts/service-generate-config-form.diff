@@ -19,10 +19,10 @@ index 0000000..255379c
 +  weight: 99
 +
 diff --git a/modules/custom/country_music/country_music.routing.yml b/modules/custom/country_music/country_music.routing.yml
-index cd87ce5..bcd6139 100644
+index d17dd14..54ef36b 100644
 --- a/modules/custom/country_music/country_music.routing.yml
 +++ b/modules/custom/country_music/country_music.routing.yml
-@@ -5,3 +5,14 @@ country_music.song.list:
+@@ -6,3 +6,14 @@ country_music.song.list:
      noun: truck
    requirements:
      _permission: 'access content'
