@@ -2,11 +2,13 @@
 
 namespace Drupal\country_music\Service;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+
 class SongGenerator {
 
   private $configFactory;
 
-  public function __construct($configFactory)
+  public function __construct(ConfigFactoryInterface $configFactory)
   {
     $this->configFactory = $configFactory;
   }
