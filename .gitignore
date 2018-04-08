@@ -39,3 +39,4 @@ sites/simpletest
 # simpletest
 
 /modules/contrib
+/libraries

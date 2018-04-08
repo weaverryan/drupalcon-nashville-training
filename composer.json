@@ -8,7 +8,9 @@
         "wikimedia/composer-merge-plugin": "^1.4",
         "drupal/console": "^1.8",
         "drush/drush": "^9.2",
-        "drupal/devel": "^1.2"
+        "drupal/devel": "^1.2",
+        "d3/d3": "3.5.*",
+        "components/highlightjs": "9.7.*"
     },
     "replace": {
         "drupal/core": "^8.5"
@@ -69,7 +71,7 @@
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
-        "d3": {
+        {
             "type": "package",
             "package": {
                 "name": "d3/d3",
@@ -81,7 +83,7 @@
                 }
             }
         },
-        "highlightjs": {
+        {
             "type": "package",
             "package": {
                 "name": "components/highlightjs",
