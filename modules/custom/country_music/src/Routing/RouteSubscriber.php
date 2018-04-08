@@ -16,5 +16,8 @@ class RouteSubscriber extends RouteSubscriberBase {
    * {@inheritdoc}
    */
   protected function alterRoutes(RouteCollection $collection) {
+    // change the route path, just to show we're powerful!
+    $collection->get('country_music.song.list')
+      ->setPath('/music/country/sing/{noun}');
   }
 }
