@@ -5,6 +5,11 @@ namespace Drupal\country_music\Service;
 class SongGenerator {
   public function generateSong($noun)
   {
+    if ($noun === null) {
+      $noun = $this->config('country_music.default')
+        ->get('noun');
+    }
+
     $verbs = ['drive', 'drink', 'dance'];
     $adjectives = ['Honky Tonk', 'country', 'back road', 'boot scootin'];
     $templates = [
