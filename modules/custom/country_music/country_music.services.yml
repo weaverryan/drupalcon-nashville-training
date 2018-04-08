@@ -2,3 +2,7 @@ services:
   country_music.song_generator:
     class: Drupal\country_music\Service\SongGenerator
     arguments: ['@config.factory']
+
+  country_music.country_singer_subscriber:
+    class: Drupal\country_music\EventSubscriber\CountrySingerSubscriber
+    arguments: []
