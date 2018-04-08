@@ -12,7 +12,8 @@ class SongController extends ControllerBase {
         ->get('noun');
     }
 
-    $songGenerator = new SongGenerator();
+    $songGenerator = \Drupal::getContainer()
+      ->get('country_music.song_generator');
     $title = $songGenerator->generateSong($noun);
 
     return [
