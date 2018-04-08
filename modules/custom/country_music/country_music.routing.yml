@@ -3,7 +3,7 @@ country_music.song.list:
   defaults:
     _controller: 'Drupal\country_music\Controller\SongController::writeSong'
     _title: 'Write the next hit!'
-    noun: truck
+    noun: null
   requirements:
     _permission: 'access content'
 
