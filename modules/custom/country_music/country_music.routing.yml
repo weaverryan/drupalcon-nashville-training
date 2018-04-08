@@ -1,0 +1,4 @@
+country_music.song.list:
+  path: /music/country/generate
+  requirements:
+    _permission: 'access content'
