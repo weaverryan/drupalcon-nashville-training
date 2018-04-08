@@ -3,6 +3,8 @@
 namespace Drupal\country_music\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a 'SongBlock' block.
@@ -12,7 +14,7 @@ use Drupal\Core\Block\BlockBase;
  *  admin_label = @Translation("Song block"),
  * )
  */
-class SongBlock extends BlockBase {
+class SongBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * {@inheritdoc}
@@ -27,4 +29,7 @@ class SongBlock extends BlockBase {
     return $build;
   }
 
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new self($configuration, $plugin_id, $plugin_definition);
+  }
 }
