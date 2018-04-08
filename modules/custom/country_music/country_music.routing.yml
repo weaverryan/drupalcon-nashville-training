@@ -6,3 +6,14 @@ country_music.song.list:
     noun: truck
   requirements:
     _permission: 'access content'
+
+country_music.default_form:
+  path: '/admin/config/country_music/default'
+  defaults:
+    _form: '\Drupal\country_music\Form\DefaultForm'
+    _title: 'DefaultForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
