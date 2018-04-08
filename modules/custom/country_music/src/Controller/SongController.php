@@ -3,6 +3,7 @@
 namespace Drupal\country_music\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\country_music\Service\SongGenerator;
 
 class SongController extends ControllerBase {
   public function writeSong($noun) {
@@ -11,7 +12,8 @@ class SongController extends ControllerBase {
         ->get('noun');
     }
 
-    $title = sprintf('I rode my %s, through some mud.', $noun);
+    $songGenerator = new SongGenerator();
+    $title = $songGenerator->generateSong($noun);
 
     return [
       '#type' => 'markup',
