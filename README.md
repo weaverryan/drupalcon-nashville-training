@@ -1,6 +1,6 @@
 # DrupalCon Training! D8 & Symfony: Dive Into the Core Concepts that Make Each Fly 
 
-Hi guys! This repository contains an empty Drupal 8.3 site that you'll
+Hi guys! This repository contains an empty Drupal 8.5 site that you'll
 need to install before coming to the training.
 
 The goal is to make the training feels as "normal" as possible. So,
@@ -8,7 +8,7 @@ if you normally use a VM, then install this on a VM. If you normally
 do local development, install this locally on your machine.
 
 If you have **any** problems or questions at all, just message
-me (Ryan) at ``hello@knpuniversity.com`` :).
+me (Ryan) at ``ryan@knpuniversity.com`` :).
 
 ## 1) Pre-requisites
 
@@ -65,6 +65,10 @@ to pull up your site! When you're finished, press `Ctrl+C` to
 terminate the built-in web server. We'll start it again when
 you get to the training. If you use this, you do *not* need to
 configure Apache or Nginx (but you can if you like that better).
+
+While the PHP web server is running, you will not be able to use
+that terminal. Open a new terminal to run any other commands you
+need :).
 
 **NOTE** If you're using a virtual machine, no problem! Update the
 command to be `php -S 0.0.0.0:8000` and then use your VM's IP address
