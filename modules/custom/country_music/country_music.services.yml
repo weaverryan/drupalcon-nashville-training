@@ -8,3 +8,7 @@ services:
     arguments: ['@messenger']
     tags:
       - { name: event_subscriber }
+  country_music.route_subscriber:
+    class: Drupal\country_music\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
