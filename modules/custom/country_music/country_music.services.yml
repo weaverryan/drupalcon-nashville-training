@@ -1,4 +1,4 @@
 services:
   country_music.song_generator:
     class: Drupal\country_music\Service\SongGenerator
-    arguments: []
+    arguments: ['@config.factory']
