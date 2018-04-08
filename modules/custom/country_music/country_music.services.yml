@@ -5,6 +5,6 @@ services:
 
   country_music.country_singer_subscriber:
     class: Drupal\country_music\EventSubscriber\CountrySingerSubscriber
-    arguments: []
+    arguments: ['@messenger']
     tags:
       - { name: event_subscriber }
