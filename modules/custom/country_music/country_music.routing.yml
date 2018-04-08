@@ -1,4 +1,6 @@
 country_music.song.list:
   path: /music/country/generate
+  defaults:
+    _controller: 'Drupal\country_music\Controller\SongController::writeSong'
   requirements:
     _permission: 'access content'
