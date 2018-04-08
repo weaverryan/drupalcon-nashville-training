@@ -1,0 +1,5 @@
+name: 'Country Music'
+type: module
+description: 'Living the Nashville Dream!'
+core: 8.x
+package: 'Custom'

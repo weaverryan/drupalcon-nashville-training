@@ -1,0 +1,14 @@
+{
+  "name": "drupal/country_music",
+  "type": "drupal-module",
+  "description": "Living the Nashville Dream!",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/country_music",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/country_music",
+    "source": "http://cgit.drupalcode.org/country_music"
+  },
+  "require": { }
+}

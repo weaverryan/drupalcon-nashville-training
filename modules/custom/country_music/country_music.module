@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains country_music.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function country_music_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the country_music module.
+    case 'help.page.country_music':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Living the Nashville Dream!') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function country_music_theme() {
+  return [
+    'country_music' => [
+      'render element' => 'children',
+    ],
+  ];
+}
