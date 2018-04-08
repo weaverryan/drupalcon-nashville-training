@@ -2,6 +2,7 @@ country_music.song.list:
   path: /music/country/generate/{noun}
   defaults:
     _controller: 'Drupal\country_music\Controller\SongController::writeSong'
+    _title: 'Write the next hit!'
     noun: truck
   requirements:
     _permission: 'access content'
