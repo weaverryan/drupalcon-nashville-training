@@ -18,8 +18,11 @@ class SongBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    $songGenerator = \Drupal::getContainer()
+      ->get('country_music.song_generator');
+
     $build = [];
-    $build['song_block']['#markup'] = 'Implement SongBlock.';
+    $build['song_block']['#markup'] = $songGenerator->generateSong('dog');
 
     return $build;
   }
