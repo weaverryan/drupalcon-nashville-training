@@ -3,10 +3,18 @@
 namespace Drupal\country_music\Service;
 
 class SongGenerator {
+
+  private $configFactory;
+
+  public function __construct($configFactory)
+  {
+    $this->configFactory = $configFactory;
+  }
+
   public function generateSong($noun)
   {
     if ($noun === null) {
-      $noun = $this->config('country_music.default')
+      $noun = $this->configFactory->get('country_music.default')
         ->get('noun');
     }
 
